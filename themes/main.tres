@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://8bv36yxvtvep"]
+
+[ext_resource type="FontFile" uid="uid://b0tjwh3ri0l1r" path="res://fonts/super-mario-bros-nes.ttf" id="1_0yiey"]
+
+[resource]
+default_font = ExtResource("1_0yiey")
+default_font_size = 16
+Label/colors/font_color = Color(0, 1, 0, 1)
+LineEdit/colors/font_color = Color(0, 0.87451, 0, 1)
+RichTextLabel/colors/default_color = Color(0, 1, 0, 1)

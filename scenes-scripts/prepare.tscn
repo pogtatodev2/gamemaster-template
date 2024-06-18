@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5qn34vjiuuy3"]
+
+[ext_resource type="Script" path="res://scenes-scripts/prepare.gd" id="1_23h7i"]
+[ext_resource type="Theme" uid="uid://bg3ia5o6boc" path="res://themes/tite.tres" id="2_q5ed3"]
+
+[node name="prepare" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23h7i")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+theme = ExtResource("2_q5ed3")
+text = "PREPARE THYSELF."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)
+
+[node name="bg" type="ColorRect" parent="."]
+z_index = -6
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

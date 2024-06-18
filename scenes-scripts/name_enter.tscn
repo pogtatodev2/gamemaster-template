@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://cocbj3kxb8w7h"]
+
+[ext_resource type="Script" path="res://scenes-scripts/name_enter.gd" id="1_f6iye"]
+[ext_resource type="FontFile" uid="uid://iqukdot1bybg" path="res://fonts/VCR_OSD_MONO_1.001[1].ttf" id="2_1b4sq"]
+[ext_resource type="FontFile" uid="uid://b0tjwh3ri0l1r" path="res://fonts/super-mario-bros-nes.ttf" id="3_o1h50"]
+[ext_resource type="Theme" uid="uid://bg3ia5o6boc" path="res://themes/tite.tres" id="4_pl4bv"]
+[ext_resource type="Theme" uid="uid://8bv36yxvtvep" path="res://themes/main.tres" id="5_xoca6"]
+[ext_resource type="Script" path="res://scenes-scripts/glovar.gd" id="6_cnu03"]
+
+[node name="nameEnter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -72.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6iye")
+
+[node name="enter" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_right = 556.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_1b4sq")
+theme_override_font_sizes/font_size = 41
+text = "ENTER YOUR INDENTIFIER."
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)
+
+[node name="bg" type="ColorRect" parent="."]
+z_index = -6
+layout_mode = 0
+offset_right = 1104.0
+offset_bottom = 592.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 64.0
+offset_right = 576.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_o1h50")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "IDENTIFIER"
+
+[node name="list" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 152.0
+offset_right = 192.0
+offset_bottom = 189.0
+theme = ExtResource("4_pl4bv")
+text = "ID LIST:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="list"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 580.0
+offset_bottom = 141.0
+theme = ExtResource("5_xoca6")
+bbcode_enabled = true
+text = "@PICKELZ / @DERNI     [s]@SMORGE[/s]
+@WHITEFACE            @DEADMAN68687
+@CASUALCHARISKENJOYER [s]@KEON[/s]
+@MATHEMATICA / CHARA  @KATACLYSMIX
+@SPECIMEN_2 / LEAN"
+autowrap_mode = 0
+
+[node name="strikethrough" type="Line2D" parent="list"]
+position = Vector2(350.475, 93)
+scale = Vector2(0.49505, 1)
+points = PackedVector2Array(0, 0, 82.8801, 0, 103.527, 0, 192, 0)
+width = 5.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="strikethrough2" type="Line2D" parent="list"]
+position = Vector2(351.045, 57)
+scale = Vector2(0.608911, 0.999999)
+points = PackedVector2Array(0, 0, 46.6579, 0, 82.8801, 0, 103.527, 0, 192, 0)
+width = 5.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="disclaimer" type="Label" parent="list"]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 585.0
+offset_bottom = 39.0
+theme = ExtResource("5_xoca6")
+theme_override_font_sizes/font_size = 16
+text = "(All NAME *MUST* BE INPUTTED IN UPPERCASE!!)"
+autowrap_mode = 3
+
+[node name="glovar" type="Node" parent="."]
+script = ExtResource("6_cnu03")
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
